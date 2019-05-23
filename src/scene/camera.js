@@ -17,7 +17,7 @@ class Camera {
       nearPlane,
       farPlane
     );
-    this.instance.position.set(0, 400, 250)
+    this.instance.position.set(0, 450, 250)
     this.target = new THREE.Vector3(0, 60, 0)
     this.instance.lookAt(this.target)
   }

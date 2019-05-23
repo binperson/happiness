@@ -49,6 +49,7 @@ export default class GamePage {
     this.scene.instance.add(this.ball.instance)
   }
   bindTouchEvent () {
+    canvas.addEventListener('touchstart', this.touchStartCallback)
     canvas.addEventListener('touchmove', this.touchMoveCallback)
   }
   touchMoveCallback = (event) => {
@@ -56,6 +57,11 @@ export default class GamePage {
       event.preventDefault();
       this.mousePos = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
     }
+  }
+  touchStartCallback = (event) => {
+    const audio = wx.createInnerAudioContext()
+    audio.src = '/res/audios/start.mp3'
+    audio.play()
   }
   getBallPos () {
     var vector = new THREE.Vector3();
